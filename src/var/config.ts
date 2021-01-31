@@ -1,4 +1,4 @@
-export const PORT: number = 8000
+export const PORT: number = 3000
 export const ROUTES_DIR: string = './dist/routes/**/*.js'
 export const MODELS_DIR: string = './dist/models/**/*.js'
 export const USE_DB: boolean = true

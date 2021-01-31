@@ -23,7 +23,8 @@ export default class AuthController {
     const user = new User({
         nickname: nickname,
         username: username,
-        password: password
+        password: password,
+        avatarUrl: "/img/avatar3.png"
     });
     await user.save();
     res.json(user);

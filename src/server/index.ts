@@ -29,6 +29,7 @@ export default function() {
   app.set('views', path.join(__dirname, '../../src/views'))
   app.set('view engine', 'pug')
 
+  app.use(require('cors')())
   app.use(logger('dev'))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: false }))

@@ -1,15 +1,21 @@
 import { Document, Model, model, Schema } from 'mongoose'
 
 export interface IMessage extends Document {
-  name: string
-  creted: Date
+  type: string;
+  source: string;
+  reply?: string;
+  status?: string;
+  userTarget: string;
+  userAuthor: string;
+  sentDate?: Date;
 }
 
 export let MessageSchema: Schema = new Schema({
   type: {
     type: Schema.Types.String,
     required: true,
-    enum: ["text", "emoji","image","sticker"]
+    enum: ["text", "emoji","image","sticker"],
+    default: "text"
   },
   source: {
     type: Schema.Types.String,
@@ -23,25 +29,24 @@ export let MessageSchema: Schema = new Schema({
   status: {
     type: Schema.Types.String,
     required: true,
-    enum: ["sent", "readed", "uploading","recived"]
+    enum: ["sent", "readed", "uploading","recived"],
+    default: "sent"
   },
-  replyMessage:{
+  reply:{
       type: Schema.Types.ObjectId,
       required: false
   },
   userAuthor:{
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.String,
       required: true,
-      ref: 'User'
   },
   userTarget:{
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.String,
     required: true,
-    ref: 'User'
  }
 })
 
-export const Message: Model<IMessage> = model<IMessage>(
+export const Message = model<IMessage>(
   'Message',
   MessageSchema,
 )

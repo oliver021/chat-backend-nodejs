@@ -17,9 +17,11 @@ describe('Index Controller', function() {
     expect(spy.calledOnce).to.equal(true)
   })
 
-  it('Can get get json', () => {
+  /*it('Can get get json', () => {
     indexController.msg(null, res)
     const data = JSON.parse(res._getData())
     expect(data.msg).to.equal('Hello!')
-  })
+  })*/
+
+  
 })
